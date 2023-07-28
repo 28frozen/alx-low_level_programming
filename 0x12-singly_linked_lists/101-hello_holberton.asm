@@ -10,7 +10,7 @@ main:
     push rbp
     mov rdi, format
     mov rsi, hello
-    xor rax, rax
     call printf
     pop rbp
+    xor rax, rax
     ret
