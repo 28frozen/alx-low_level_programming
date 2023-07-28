@@ -7,10 +7,14 @@ section .text
     global main
 
 main:
+    ; Print "Hello, Holberton" with a new line
     push rbp
     mov rdi, format
     mov rsi, hello
     call printf
     pop rbp
-    xor rax, rax
-    ret
+
+    ; Exit the program
+    xor rdi, rdi          ; exit status 0
+    mov rax, 60           ; syscall number for sys_exit
+    syscall
