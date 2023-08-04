@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * flip_bits - Counts the number of bits needed to change to get from one number to another.
+ * flip_bits - Counts the number of bits needed to change
+ * to get from one number to another.
  * @n: First number.
  * @m: Second number.
  *
@@ -9,15 +10,13 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int i, count = 0;
-	unsigned long int current;
+	unsigned int count = 0;
 	unsigned long int exclusive = n ^ m;
 
-	for (i = 63; i >= 0; i--)
+	while (exclusive > 0)
 	{
-		current = exclusive >> i;
-		if (current & 1)
-			count++;
+		count += exclusive & 1;
+		exclusive >>= 1;
 	}
 
 	return (count);
